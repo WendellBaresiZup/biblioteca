@@ -1,3 +1,20 @@
+// 1 - Implementar o menu com switch case dentro de um while, enquanto for diferente de sair ele nao fecha e quando for 6 ele fecha
+
+// 2 - Implementar funcao para cada açao, toda vez que finalizar ele volta para o menu !6.
+
+// 3 - Implementar a funcao cadastrar livro
+
+// 4 - Implementar a funcao cadastrar Usuario
+
+// 5 - Implementar o metodo Realizar Emprestimo
+
+// 6 - Implementar o metodo Realizar Devolucao
+
+// 7 - Implementar o metodo Exibir Livros Disponiveis
+
+// 8 - Implementar o Sair do Menu
+
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,11 +26,7 @@ public class Main {
         int menu = 0;
         Biblioteca biblioteca = new Biblioteca();
 
-        // 1 - Implementar o menu com switch case dentro de um while, enquanto for diferente de sair ele nao fecha e quando for 6 ele fecha
 
-        // 2 - Implementar funcao para cada açao, toda vez que finalizar ele volta para o menu !6
-
-        // 3 - Implementar a funcao cadastrar livro
 
         while (menu != 6){
 
@@ -38,11 +51,13 @@ public class Main {
                     cadastrarUsuario(biblioteca);
                     break;
                 case 3:
-                    realizarEmprestimo( biblioteca);
+                    realizarEmprestimo(biblioteca);
                     break;
                 case 4:
+                    realizarDevolucao(biblioteca);
                     break;
                 case 5:
+                    exibirLivrosDisponiveis(biblioteca);
                     break;
                 case 6:
                     System.out.println("Finalizando o Sistema");
@@ -90,5 +105,22 @@ public class Main {
         int idUsuario = scanner.nextInt();
 
         biblioteca.realizarEmprestimo(emprestimoLivro, idUsuario);
+    }
+
+    public static void realizarDevolucao(Biblioteca biblioteca){
+        System.out.println("Digite o nome do Livro: ");
+        String devolverLivro = scanner.nextLine();
+
+        System.out.println("Digite o ID do Usuario");
+        int idUsuario = scanner.nextInt();
+
+        biblioteca.realizarDevolucao(devolverLivro, idUsuario);
+    }
+
+    public static void exibirLivrosDisponiveis(Biblioteca biblioteca){
+        System.out.println("Digite o nome do Livro: ");
+        String emprestimoLivro = scanner.nextLine();
+
+        biblioteca.exibirLivrosDisponiveis();
     }
 }

@@ -1,3 +1,16 @@
+// 1 - Criar a classe Usuario
+
+// 2 - Criar os atributos da classe Usuario
+
+// 3 - Criar o construtor da classe Usuario
+
+// 4 - Criar os Getter e Setter
+
+// 5 - Implementar o metodo Adicionar Livro
+
+// 6 - Implementar o metodo Remover Livro
+
+
 import java.util.ArrayList;
 
 public class Usuario {
@@ -32,7 +45,12 @@ public class Usuario {
     }
 
     public void adicionarLivro(Livro livro){
-        livrosEmprestados.add(livro);
+        // Caso de condicao criada conforme a regra de negocio que o usuario so pode pegar 3 livros por vez. Mas o atributo LivrosEmpretados por ser uma array então precisa ser do tamanho SIZE, LENGHT OU LONG
+        if (livrosEmprestados.size() <= 3){
+            livrosEmprestados.add(livro);
+        } else {
+            System.out.println("Você pode pegar emprestado 3 livros por vez.");
+        }
     }
 
     public void removerLivro(Livro livro){
