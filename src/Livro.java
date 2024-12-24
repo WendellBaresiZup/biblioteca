@@ -16,12 +16,10 @@ public class Livro {
 
 
     // Atributos do Livro
-    public String titulo;
-    public String autor;
-    public String isbn;
-    public boolean disponivel;
-
-    // Atributo Usuario criado dentro da Classe Livro, pois vai realizar algumas chamadas dos atributos da classe Usuário
+    private String titulo;
+    private String autor;
+    private String isbn;
+    private boolean disponivel;
     public Usuario usuario;
 
     // Metodo Construtor
@@ -29,13 +27,10 @@ public class Livro {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
-        // Atributo Disponível recebe verdadeiro, pois sempre vai estar disponível
+        // Livro vai iniciar disponível
         this.disponivel = true;
     }
 
-    // Metodos do Livro
-
-    // Metodo Exibir Detalhes
      public void exibirDetalhesLivro(){
          System.out.println("Título: " + this.titulo);
          System.out.println("Autor: " + this.autor);
@@ -45,13 +40,12 @@ public class Livro {
          } else {
              System.out.println("Disponível: " + "Nao");
          }
-         // Condicao criada para caso o usuário for diferente de nulo entao o livro foi emprestado para algum usuário.
          if (usuario != null){
              System.out.println("Foi emprestado para o usuario: " + usuario.getNome());
          }
      }
 
-    // Metodo Emprestar
+
      public void emprestar(Usuario usuario){
        if (disponivel){
            disponivel = false;
@@ -62,7 +56,7 @@ public class Livro {
        }
      }
 
-    // Metodo Devolver
+
      public void devolver(Usuario usuario){
          if (!disponivel){
              disponivel = true;
@@ -71,6 +65,9 @@ public class Livro {
              System.out.println("Livro " + titulo + " não esta disponível.");
          }
      }
+
+    public void adicionarLivro(Livro livro) {
+    }
 
      // Getter e Setter
     public String getTitulo() {
@@ -105,7 +102,5 @@ public class Livro {
         this.disponivel = disponivel;
     }
 
-    // Metodo Cosntrutor adicionar livro que vai ser chamado na classe biblioteca
-    public void adicionarLivro(Livro livro) {
-    }
+
 }

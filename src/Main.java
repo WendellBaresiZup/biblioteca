@@ -26,8 +26,6 @@ public class Main {
         int menu = 0;
         Biblioteca biblioteca = new Biblioteca();
 
-
-
         while (menu != 6){
 
             System.out.println("Bem vindo ao sistema de gerenciamento de Biblioteca");
@@ -40,7 +38,7 @@ public class Main {
                     "\n6 - Sair");
 
             menu = scanner.nextInt();
-            // Criar um nextLine após o nextInt para não pular linha ao entrar na funcão do usuário.
+            // Um nextLine quebra de linha
             scanner.nextLine();
 
             switch (menu){
@@ -119,8 +117,6 @@ public class Main {
 
     public static void exibirLivrosDisponiveis(Biblioteca biblioteca){
         System.out.println("Digite o nome do Livro: ");
-        String emprestimoLivro = scanner.nextLine();
-
         biblioteca.exibirLivrosDisponiveis();
     }
 }

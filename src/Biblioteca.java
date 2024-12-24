@@ -22,14 +22,13 @@ public class Biblioteca {
     public ArrayList<Livro> livros;
     public ArrayList<Usuario> usuarios;
 
-    // Metodo Construtor
+
     public Biblioteca() {
         this.livros = new ArrayList<>();
         this.usuarios = new ArrayList<>();
     }
 
 
-    // Metodos da Classe Biblioteca
     public void cadastrarLivro(Livro livro){
         livros.add(livro);
         System.out.println("Livro " + livro.getTitulo() + " cadastrado");
@@ -41,13 +40,9 @@ public class Biblioteca {
     }
 
     public void realizarEmprestimo(String titulo, int idUsuario){
-        // Criacao do metodo buscaDeLivro para chamar a classe Livro e retornar o título do objeto.
         Livro livro = buscaDeLivro(titulo);
-        // Criacao do metodo buscaDeUsuario para chamar a classe Usuário e retornar o título do objeto.
         Usuario usuario = buscaDeUsuario(idUsuario);
-        // Condicao se caso o livro e o usuario forem diferentes de Nulo ele continua a condicao
         if (livro != null && usuario != null){
-            // Entao o livro esta disponivel, e chama o metodo emprestar que esta na classe livro, e pedindo os atributos da classe livro e usuario.
             if (livro.isDisponivel()){
                 livro.emprestar(usuario);
                 usuario.adicionarLivro(livro);
@@ -57,15 +52,10 @@ public class Biblioteca {
         }
     }
 
-
     public void realizarDevolucao(String titulo, int idUsuario){
-        // Criacao do metodo buscaDeLivro para chamar a classe Livro e retornar o título do objeto.
         Livro livro = buscaDeLivro(titulo);
-        // Criacao do metodo buscaDeUsuario para chamar a classe Usuário e retornar o título do objeto.
         Usuario usuario = buscaDeUsuario(idUsuario);
-        // Condicao se caso o livro e o usuario forem diferentes de Nulo ele continua a condicao
         if (livro != null && usuario != null){
-            // Entao o livro esta disponivel, e chama o metodo emprestar que esta na classe livro, e pedindo os atributos da classe livro e usuario.
             if (!livro.isDisponivel()){
                 livro.devolver(usuario);
                 usuario.removerLivro(livro);
@@ -88,12 +78,7 @@ public class Biblioteca {
         }
     }
 
-    // Metodos Criados pela propria IDE para os metodos que foram criados para fazer a busca
-
-    // Criada o metodo de modo privado, pois so poderia ser chamado pela propria classe.
     private Usuario buscaDeUsuario(int id) {
-
-        // Um laco de usuario criado dentro da condicao, pois usuarios é uma lista.
         for (Usuario usuario : usuarios) {
             if (usuario.getId() == id) {
                 return usuario;
@@ -110,7 +95,7 @@ public class Biblioteca {
                 return livro;
             }
         }
-          System.out.println("Livro " + titulo + " não encontrado");
-          return null;
+        System.out.println("Livro " + titulo + " não encontrado");
+        return null;
     }
 }
